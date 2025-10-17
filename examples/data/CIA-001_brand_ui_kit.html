@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CIA-001 · Brand & UI Kit — ICPR Junior College</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* === PALETA (derivada de los emblemas provistos) === */
+      --brand-navy: #0b1f33;   /* fondo profundo */
+      --brand-blue: #0b4e8f;   /* borde del escudo */
+      --brand-cyan: #7ee7ff;   /* brillo IA */
+      --brand-teal: #0e7c86;   /* acento frío */
+      --brand-lime: #72d24a;   /* circuito/verde vivo */
+      --brand-gold: #f2b10e;   /* barras doradas */
+      --brand-steel:#5b6776;   /* metal/placa */
+      --brand-ink:  #0a1523;   /* texto primario oscuro */
+      --brand-paper:#0f1c2b;   /* background card */
+      --brand-surface:#0c2034; /* layout background */
+      --white: #ffffff;
+      --muted: #94a3b8;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--white); background: radial-gradient(1200px 800px at 75% -10%, rgba(126,231,255,.12), transparent 60%),
+                         radial-gradient(1000px 800px at -10% 0%, rgba(114,210,74,.10), transparent 60%),
+                         linear-gradient(180deg, var(--brand-surface) 0%, #09131f 100%);
+    }
+    a{color:var(--brand-cyan); text-decoration:none}
+    .container{max-width:1200px; margin:0 auto; padding:28px 20px 64px}
+
+    /* Header */
+    header{
+      display:grid; grid-template-columns: 96px 1fr auto; gap:18px; align-items:center; margin-top:10px;
+    }
+    .brand-lockup{display:flex; align-items:center; gap:14px}
+    .brand-title{font-weight:800; letter-spacing:.4px}
+    .brand-title small{display:block; font-weight:600; color:var(--muted); letter-spacing:.2px}
+    .badge{height:86px; width:86px; border-radius:22px; background:linear-gradient(145deg,#0c2640,#091a2b);
+      display:grid; place-items:center; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.06)}
+    .badge img{max-width:70px; max-height:70px; display:block}
+
+    nav{display:flex; gap:10px}
+    .btn{--bg:transparent; --fg:var(--white);
+      display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.12); color:var(--fg); background:var(--bg);
+      box-shadow:0 0 0 rgba(0,0,0,0); transition:all .2s ease}
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+    .btn.primary{--bg:linear-gradient(135deg,var(--brand-blue), #0d6dd1)}
+    .btn.ghost{--fg:var(--brand-cyan)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; margin:26px 0 34px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,.02) 100%);
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow)}
+    .panel h1{margin:0 0 10px; font-size:clamp(24px, 3.2vw, 38px)}
+    .kicker{display:inline-block; font-weight:700; color:var(--brand-cyan); letter-spacing:.15em; text-transform:uppercase; font-size:12px; margin-bottom:4px}
+    .hero p{color:#ccdae9; margin:0}
+    .cta-row{display:flex; gap:12px; margin-top:16px}
+
+    .crest{position:relative; border-radius:var(--radius); display:grid; place-items:center; min-height:320px;
+      background:radial-gradient(800px 300px at 50% 0%, rgba(114,210,74,.15), transparent 60%),
+                 linear-gradient(145deg, #0b2034 0%, #071423 100%);
+      border:1px solid rgba(255,255,255,.08)}
+    .crest img{max-width:72%; height:auto; filter: drop-shadow(0 10px 28px rgba(0,0,0,.45));}
+    .glow{position:absolute; inset:-20px; pointer-events:none; background:
+      radial-gradient(500px 120px at 60% 12%, rgba(126,231,255,.18), transparent 60%),
+      radial-gradient(600px 140px at 30% 0%, rgba(114,210,74,.16), transparent 60%);
+      mix-blend-mode:screen; opacity:.9}
+
+    /* Swatches */
+    .swatches{display:grid; grid-template-columns: repeat(6, 1fr); gap:12px; margin-top:14px}
+    .swatch{border-radius:14px; padding:18px; min-height:96px; display:flex; flex-direction:column; justify-content:flex-end;
+      border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow); cursor:pointer}
+    .swatch small{opacity:.88}
+
+    .s-navy{background:var(--brand-navy)}
+    .s-blue{background:var(--brand-blue)}
+    .s-cyan{background:var(--brand-cyan); color:#04212a}
+    .s-teal{background:var(--brand-teal)}
+    .s-lime{background:var(--brand-lime); color:#08220d}
+    .s-gold{background:var(--brand-gold); color:#2a2100}
+    .s-steel{background:var(--brand-steel)}
+    .s-ink{background:var(--brand-ink)}
+
+    /* Gallery */
+    .h2{margin:36px 0 10px; font-size:22px; font-weight:800; letter-spacing:.2px}
+    .gallery{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
+    .card{grid-column: span 6; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow); background:linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.02) 100%)}
+    .card img{display:block; width:100%; height:auto}
+    .card .meta{display:flex; justify-content:space-between; align-items:center; padding:12px 14px; color:#c5d3e6}
+    .pill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.14)}
+
+    /* Info blocks */
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:18px}
+    .info{background:linear-gradient(180deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,.02) 100%);
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .info h3{margin:0 0 8px}
+    .kbd{font-size:12px; padding:2px 8px; border-radius:8px; border:1px solid rgba(255,255,255,.18); background:rgba(0,0,0,.25)}
+
+    footer{margin-top:38px; padding-top:18px; border-top:1px dashed rgba(255,255,255,.14); color:#9fb0c6; font-size:14px}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{grid-template-columns: 1fr}
+      .gallery .card{grid-column: span 12}
+      .swatches{grid-template-columns: repeat(3, 1fr)}
+      header{grid-template-columns: 72px 1fr}
+      .badge{height:72px; width:72px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge" aria-hidden="true">
+        <!-- Reemplaza src por tu ruta si lo deseas. Los nombres a continuación coinciden con tus archivos -->
+        <img src="F00B740C-FAA2-4034-B08B-20064FB13844.png" alt="Escudo CIA–IA" />
+      </div>
+      <div class="brand-lockup">
+        <div>
+          <div class="brand-title">ICPR Junior College <small>CIA‑001 · Fundamentos de la Administración en la Era de la IA</small></div>
+        </div>
+      </div>
+      <nav>
+        <a class="btn ghost" href="#paleta" title="Ir a paleta">Paleta</a>
+        <a class="btn" href="#logos" title="Ver emblemas">Emblemas</a>
+        <a class="btn primary" href="#descargas">Descargas</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="panel">
+        <span class="kicker">CPAIA • UI Kit</span>
+        <h1>Identidad visual y guía rápida</h1>
+        <p>Hoja de estilos, paleta, emblemas y componentes base para el curso <strong>CIA‑001</strong>. Esta plantilla está lista para reutilizar en Moodle/NotebookLM o sitios informativos del programa. Incluye colores, tipografías, tarjetas glass y botones con acentos <em>IA</em> (cian) y <em>circuito</em> (lime).</p>
+        <div class="cta-row">
+          <button class="btn primary" onclick="window.print()">Imprimir / PDF</button>
+          <button class="btn" onclick="copyVars()">Copiar variables CSS</button>
+        </div>
+        <div style="margin-top:8px; color:#98abc2; font-size:13px">Tip: pulsa sobre cualquier <span class="kbd">muestra de color</span> para copiar su HEX.</div>
+      </div>
+      <div class="crest panel">
+        <div class="glow"></div>
+        <img src="B6FF3535-1849-4789-9BE2-CEDA9575EC17.png" alt="Escudo principal A:IA" />
+      </div>
+    </section>
+
+    <section id="paleta" class="panel">
+      <h2 class="h2">Paleta de colores</h2>
+      <div class="swatches">
+        <div class="swatch s-navy" data-hex="#0b1f33"><small>Navy</small><strong>#0B1F33</strong></div>
+        <div class="swatch s-blue" data-hex="#0b4e8f"><small>Blue</small><strong>#0B4E8F</strong></div>
+        <div class="swatch s-cyan" data-hex="#7ee7ff"><small>Cyan IA</small><strong>#7EE7FF</strong></div>
+        <div class="swatch s-teal" data-hex="#0e7c86"><small>Teal</small><strong>#0E7C86</strong></div>
+        <div class="swatch s-lime" data-hex="#72d24a"><small>Lime Circuit</small><strong>#72D24A</strong></div>
+        <div class="swatch s-gold" data-hex="#f2b10e"><small>Gold Bars</small><strong>#F2B10E</strong></div>
+        <div class="swatch s-steel" data-hex="#5b6776"><small>Steel</small><strong>#5B6776</strong></div>
+        <div class="swatch s-ink" data-hex="#0a1523"><small>Ink</small><strong>#0A1523</strong></div>
+      </div>
+    </section>
+
+    <section id="logos" class="panel" style="margin-top:18px">
+      <h2 class="h2">Emblemas / Logotipos</h2>
+      <div class="gallery" style="margin-top:8px">
+        <figure class="card">
+          <img src="B6FF3535-1849-4789-9BE2-CEDA9575EC17.png" alt="Escudo A:IA — barra+ circuito" />
+          <figcaption class="meta"><span>Escudo A:IA</span><span class="pill">PNG • 1:1</span></figcaption>
+        </figure>
+        <figure class="card">
+          <img src="7264A6BF-687A-45B2-8AD4-026368E0D039.png" alt="Escudo + placa ICPR vertical" />
+          <figcaption class="meta"><span>Escudo + ICPR (vertical)</span><span class="pill">PNG • 3:4</span></figcaption>
+        </figure>
+        <figure class="card">
+          <img src="0F007C9E-46FF-4DC0-9BC0-F17E106B07BB.png" alt="Placa ICPR Junior College" />
+          <figcaption class="meta"><span>Placa ICPR</span><span class="pill">PNG • 1:1</span></figcaption>
+        </figure>
+        <figure class="card">
+          <img src="F00B740C-FAA2-4034-B08B-20064FB13844.png" alt="Escudo CIA‑IA" />
+          <figcaption class="meta"><span>Escudo CIA‑IA</span><span class="pill">PNG • 1:1</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="grid-3" style="margin-top:18px">
+      <div class="info">
+        <h3>Tipografía</h3>
+        <p><strong>Inter</strong> (Google Fonts) — títulos 700–800, cuerpo 400–500. Alternativa del sistema: <em>Segoe UI</em>/<em>Roboto</em>.</p>
+      </div>
+      <div class="info">
+        <h3>Componentes</h3>
+        <p>Tarjetas “glass”, botones con degradado azul y contorno cian, pills para metadatos, sombras suaves.</p>
+      </div>
+      <div class="info" id="descargas">
+        <h3>Descargas</h3>
+        <p>Coloca los PNG junto a este HTML (mismos nombres) o actualiza los <span class="kbd">src</span>. Puedes exportar a PDF con <em>Imprimir</em>.</p>
+      </div>
+    </section>
+
+    <footer>
+      CPAIA · CIA‑001 — Identidad visual. © ICPR Junior College. Hecho con ♥ y buenas prácticas de accesibilidad.
+    </footer>
+  </div>
+
+  <script>
+    function copy(text){navigator.clipboard?.writeText(text)}
+    function copyVars(){
+      const css = `:root{\n  --brand-navy:${getComputedStyle(document.documentElement).getPropertyValue('--brand-navy')};\n  --brand-blue:${getComputedStyle(document.documentElement).getPropertyValue('--brand-blue')};\n  --brand-cyan:${getComputedStyle(document.documentElement).getPropertyValue('--brand-cyan')};\n  --brand-teal:${getComputedStyle(document.documentElement).getPropertyValue('--brand-teal')};\n  --brand-lime:${getComputedStyle(document.documentElement).getPropertyValue('--brand-lime')};\n  --brand-gold:${getComputedStyle(document.documentElement).getPropertyValue('--brand-gold')};\n  --brand-steel:${getComputedStyle(document.documentElement).getPropertyValue('--brand-steel')};\n  --brand-ink:${getComputedStyle(document.documentElement).getPropertyValue('--brand-ink')};\n}`;
+      copy(css.trim());
+      toast('Variables CSS copiadas');
+    }
+    document.querySelectorAll('.swatch').forEach(el=>{
+      el.addEventListener('click',()=>{copy(el.dataset.hex); toast(`${el.dataset.hex} copiado`)})
+    })
+    function toast(msg){
+      const t=document.createElement('div');
+      t.textContent=msg; t.style.cssText='position:fixed;left:50%;top:18px;transform:translateX(-50%);background:rgba(9,26,43,.9);border:1px solid rgba(255,255,255,.2);padding:10px 14px;border-radius:10px;color:#cde7ff;z-index:9999;box-shadow:0 10px 24px rgba(0,0,0,.35)';
+      document.body.appendChild(t); setTimeout(()=>t.remove(),1600);
+    }
+  </script>
+</body>
+</html>
